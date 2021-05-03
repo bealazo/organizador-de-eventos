@@ -2,7 +2,7 @@ import React from 'react';
 import { withNavigation } from '@react-navigation/compat';
 import PropTypes from 'prop-types';
 import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback } from 'react-native';
-import { Block, Text, theme } from 'galio-framework';
+import { Block, Text, theme, Icon } from 'galio-framework';
 
 import { argonTheme } from '../constants';
 
@@ -24,6 +24,19 @@ class Card extends React.Component {
     return (
       <Block row={horizontal} card flex style={cardContainer}>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+          <Block flex style={styles.iconContainer}>
+            <Icon name={item.name} family="font-awesome" size={30} color="white" style={styles.icon} />
+          </Block>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+          <Block flex space="between" style={styles.cardDescription}>
+            <Text size={14} style={styles.cardTitle}>{item.title}</Text>
+            {/* <Text size={12} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta}</Text> */}
+          </Block>
+        </TouchableWithoutFeedback>
+      </Block> 
+    /*   <Block row={horizontal} card flex style={cardContainer}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
           <Block flex style={imgContainer}>
             <Image source={{uri: item.image}} style={imageStyles} />
           </Block>
@@ -34,7 +47,8 @@ class Card extends React.Component {
             <Text size={12} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta}</Text>
           </Block>
         </TouchableWithoutFeedback>
-      </Block>
+      </Block> */
+      
     );
   }
 }
@@ -49,24 +63,30 @@ Card.propTypes = {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: "#000080",
     marginVertical: theme.SIZES.BASE,
     borderWidth: 0,
     minHeight: 114,
-    marginBottom: 16
+    marginBottom: 16,
+    justifyContent:"center"
+   
   },
   cardTitle: {
     flex: 1,
     flexWrap: 'wrap',
-    paddingBottom: 6
+    paddingBottom: 6,
+    textAlign:"center",
+    fontWeight: "bold",
+   fontSize: 12,
+   color:"white"
   },
   cardDescription: {
     padding: theme.SIZES.BASE / 2
   },
   imageContainer: {
     borderRadius: 3,
-    elevation: 1,
-    overflow: 'hidden',
+    elevation: 1, 
+   overflow: 'hidden',
   },
   image: {
     // borderRadius: 3,
@@ -93,6 +113,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     elevation: 2,
   },
+  icon:{
+
+
+  },
+  iconContainer:{
+    justifyContent:"center"
+  }
 });
 
 export default withNavigation(Card);

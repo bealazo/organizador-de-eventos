@@ -22,11 +22,13 @@ export default {
     GRADIENT_END: '#AC2688',
     PRICE_COLOR: '#EAD5FB',
     BORDER_COLOR: '#E7E7E7',
-    BLOCK: '#E7E7E7',
+    BLOCK: '#8B0000',
     ICON: '#172B4D',
     HEADER: '#525F7F',
     BORDER: '#CAD1D7',
     WHITE: '#FFFFFF',
-    BLACK: '#000000'
+    BLACK: '#000000',
+  
+    
   }
 };

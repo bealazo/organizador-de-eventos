@@ -1,25 +1,36 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, View } from 'react-native';
 import { Block, theme } from 'galio-framework';
 
 import { Card } from '../components';
+import { Event } from '../components';
 import articles from '../constants/articles';
 const { width } = Dimensions.get('screen');
 
 class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.state = { counter: 0 };
+    //this.handleEvents = this.handleEvents.bind(this);
+  }
+
+
   renderArticles = () => {
     return (
-      <ScrollView
+     <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.articles}>
         <Block flex>
-          <Card item={articles[0]} horizontal  />
-          <Block flex row>
-            <Card item={articles[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Card item={articles[2]} />
-          </Block>
-          <Card item={articles[3]} horizontal />
-          <Card item={articles[4]} full />
+        <Block style={styles.container}> 
+        {articles.map((article)=>
+         <Block style={styles.item} key={article.title}> 
+        <Card item={article} />
+        </Block>    
+        )}
+       </Block>          
+          
         </Block>
       </ScrollView>
     )
@@ -39,9 +50,20 @@ const styles = StyleSheet.create({
     width: width,    
   },
   articles: {
-    width: width - theme.SIZES.BASE * 2,
+    width: width - theme.SIZES.BASE * 3,
     paddingVertical: theme.SIZES.BASE,
   },
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+   
+  },
+  item: {
+    
+    width: '33%', // is 50% of container width
+    paddingRight: 5
+  }
 });
 
 export default Home;
