@@ -9,7 +9,7 @@ class DrawerItem extends React.Component {
   renderIcon = () => {
     const { title, focused } = this.props;
 
-    switch (title) {
+   /*  switch (title) {
       case "Home":
         return (
           <Icon
@@ -66,9 +66,9 @@ class DrawerItem extends React.Component {
         return <Icon />;
       default:
         return null;
-    }
+    }*/
   };
-
+ 
   render() {
     const { focused, title, navigation } = this.props;
 
@@ -80,13 +80,13 @@ class DrawerItem extends React.Component {
     return (
       <TouchableOpacity
         style={{ height: 60 }}
-        onPress={() =>
+        /* onPress={() =>
           title == "Getting Started"
             ? Linking.openURL(
                 "https://demos.creative-tim.com/argon-pro-react-native/docs/"
               ).catch(err => console.error("An error occurred", err))
             : navigation.navigate(title)
-        }
+        } */
       >
         <Block flex row style={containerStyles}>
           <Block middle flex={0.1} style={{ marginRight: 5 }}>
@@ -110,7 +110,7 @@ class DrawerItem extends React.Component {
 const styles = StyleSheet.create({
   defaultStyle: {
     paddingVertical: 16,
-    paddingHorizontal: 16
+    //paddingHorizontal: 16
   },
   activeStyle: {
     backgroundColor: argonTheme.COLORS.ACTIVE,

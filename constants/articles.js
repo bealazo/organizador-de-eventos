@@ -1,67 +1,67 @@
 export default [
   {
     title: 'EXPOSITORES',
-    name: 'glass',
+    name: 'users',
     cta: 'Ver', 
    
   },
   {
     title: 'PLANOS',
-    name: 'glass',
+    name: 'sticky-note-o',
     cta: 'Ver', 
    
   },
   {
     title: 'PROGRAMA',
-    name: 'glass',
+    name: 'calendar',
     cta: 'Ver', 
    
   },
   {
     title: 'REDES SOCIALES',
-    name: 'glass',
+    name: 'thumbs-o-up',
     cta: 'Ver', 
    
   }
   ,{
     title: 'REGISTRO ONLINE',
-    name: 'glass',
+    name: 'internet-explorer',
     cta: 'Ver', 
    
   },
   {
     title: 'CÓMO LLEGAR',
-    name: 'glass',
+    name: 'map-o',
     cta: 'Ver', 
    
   },
   {
     title: 'COLABORADORES',
-    name: 'glass',
+    name: 'handshake-o',
     cta: 'Ver', 
    
   },
   {
     title: 'INNOVACIONES TECNOLÓGICAS',
-    name: 'glass',
+    name: 'lightbulb-o',
     cta: 'Ver', 
    
   },
   {
     title: 'AVISOS',
-    name: 'glass',
+    name: 'bullhorn',
     cta: 'Ver', 
    
   },
   {
     title: 'TWITTER TIMELINE',
-    name: 'glass',
+    name: 'twitter',
     cta: 'Ver', 
    
   },
   {
     title: 'PONENTES',
-    name: 'glass',
+    name: 'users',
     cta: 'Ver', 
    
   }

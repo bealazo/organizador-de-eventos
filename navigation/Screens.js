@@ -140,7 +140,7 @@ function ProfileStack(props) {
 function HomeStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="screen">
-      <Stack.Screen
+   <Stack.Screen
         name="Home"
         component={Home}
         options={{
@@ -154,7 +154,7 @@ function HomeStack(props) {
           ),
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}
-      />
+      /> 
       <Stack.Screen
         name="Pro"
         component={Pro}
@@ -178,14 +178,15 @@ function HomeStack(props) {
 
 export default function OnboardingStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="none">
-      <Stack.Screen
+   <Stack.Navigator mode="card" headerMode="none">
+     
+      {/* <Stack.Screen
         name="Onboarding"
         component={Onboarding}
         option={{
           headerTransparent: true
         }}
-      />
+      />  */}
       <Stack.Screen name="App" component={AppStack} />
     </Stack.Navigator>
   );
