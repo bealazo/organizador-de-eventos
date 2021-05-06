@@ -15,6 +15,8 @@ import Profile from "../screens/Profile";
 import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
+
+import MyProfile from "../screens/MyProfile"
 // drawer
 import CustomDrawerContent from "./Menu";
 
@@ -98,8 +100,25 @@ function ArticlesStack(props) {
 
 function ProfileStack(props) {
   return (
-    <Stack.Navigator initialRouteName="Profile" mode="card" headerMode="screen">
-      <Stack.Screen
+    <Stack.Navigator initialRouteName="MyProfile" mode="card" headerMode="screen">
+      {/*  <Stack.Screen
+        name="MyProfile"
+        component={MyProfile}
+      
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+            
+              title="MI PERFIL"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+      /> */}
+      {/* <Stack.Screen
         name="Profile"
         component={Profile}
         options={{
@@ -115,8 +134,9 @@ function ProfileStack(props) {
           cardStyle: { backgroundColor: "#FFFFFF" },
           headerTransparent: true
         }}
-      />
-            <Stack.Screen
+      /> */}
+
+      <Stack.Screen
         name="Pro"
         component={Pro}
         options={{
@@ -155,6 +175,18 @@ function HomeStack(props) {
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}
       /> 
+         <Stack.Screen
+        name="MyProfile"
+        component={MyProfile}
+      
+        options={{
+       
+              title:"MI PERFIL",
+                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+      />
       <Stack.Screen
         name="Pro"
         component={Pro}

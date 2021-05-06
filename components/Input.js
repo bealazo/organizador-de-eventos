@@ -13,7 +13,7 @@ class ArInput extends React.Component {
 
     const inputStyles = [
       styles.input,
-      !shadowless && styles.shadow,
+     
       success && styles.success,
       error && styles.error,
       {...this.props.style}
@@ -23,16 +23,10 @@ class ArInput extends React.Component {
       <Input
         placeholder="write something here"
         placeholderTextColor={argonTheme.COLORS.MUTED}
+        
         style={inputStyles}
         color={argonTheme.COLORS.HEADER}
-        iconContent={
-          <Icon
-            size={14}
-            color={argonTheme.COLORS.ICON}
-            name="link"
-            family="AntDesign"
-          />
-        }
+      
         {...this.props}
       />
     );
@@ -53,10 +47,11 @@ ArInput.propTypes = {
 
 const styles = StyleSheet.create({
   input: {
-    borderRadius: 4,
-    borderColor: argonTheme.COLORS.BORDER,
+    //borderRadius: 4,
+    borderColor: "#4682B4",
+    borderBottomWidth:1,
     height: 44,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#F8F9FE'
   },
   success: {
     borderColor: argonTheme.COLORS.INPUT_SUCCESS,

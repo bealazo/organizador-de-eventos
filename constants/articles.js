@@ -12,6 +12,12 @@ export default [
    
   },
   {
+    title: 'INFORMACIÓN Y SERVICIOS',
+    name: 'info-circle',
+    cta: 'Ver', 
+   
+  },
+  {
     title: 'PROGRAMA',
     name: 'calendar',
     cta: 'Ver', 

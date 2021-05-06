@@ -19,6 +19,7 @@ class Home extends React.Component {
 
     const events=this.state.events;
     const cardContainer = [styles.card, styles.shadow];
+    const { navigation } = this.props;
 
     return (
      <ScrollView
@@ -39,7 +40,7 @@ class Home extends React.Component {
           
         </Block>
         <Block row style={styles.buttonContainer1}>
-            <Button color="#4682B4" round >MI PERFIL</Button>
+            <Button color="#4682B4" round onPress={() => navigation.navigate('MyProfile') }>MI PERFIL</Button>
          </Block>
         <Block flex style={styles.imgContainer1} >
 
