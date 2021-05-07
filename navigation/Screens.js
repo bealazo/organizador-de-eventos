@@ -16,7 +16,11 @@ import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
 
-import MyProfile from "../screens/MyProfile"
+import MyProfile from "../screens/MyProfile";
+import MyFavs from "../screens/MyFavs";
+import Exhibitors from "../screens/Exhibitors";
+import AllExhibitors from "../screens/AllExhibitors";
+
 // drawer
 import CustomDrawerContent from "./Menu";
 
@@ -183,6 +187,40 @@ function HomeStack(props) {
        
               title:"MI PERFIL",
                        
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+      />
+      <Stack.Screen
+        name="MyFavs"
+        component={MyFavs}
+      
+        options={{
+       
+              title:"MIS FAVORITOS",
+                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+      />
+        <Stack.Screen
+        name="Exhibitors"
+        component={Exhibitors}
+      
+        options={{
+       
+              title:"CATEGORÍAS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+      />
+        <Stack.Screen
+        name="All"
+        component={AllExhibitors}
+      
+        options={{
+       
+              title:"TODOS",                       
           cardStyle: { backgroundColor: "#F8F9FE" },
           
         }}

@@ -32,11 +32,14 @@
     "react-native-elements": "^3.4.1",
     "react-native-gesture-handler": "~1.8.0",
     "react-native-modal-dropdown": "git+https://github.com/siemiatj/react-native-modal-dropdown.git",
+    "react-native-pager-view": "^5.1.7",
     "react-native-qrcode-svg": "^6.1.1",
     "react-native-reanimated": "~1.13.0",
     "react-native-safe-area-context": "3.1.9",
     "react-native-screens": "~2.15.2",
-    "react-native-svg": "^12.1.1"
+    "react-native-scrollable-tab-view-forked": "^1.1.1",
+    "react-native-svg": "^12.1.1",
+    "react-native-tab-view": "^3.0.1"
   },
   "devDependencies": {
     "babel-preset-expo": "8.3.0"

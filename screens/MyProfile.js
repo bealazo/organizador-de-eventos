@@ -17,7 +17,7 @@ class MyProfile extends React.Component {
     constructor(props) {
         super(props);
         
-        this.state = { email: "", initialEmailQr:"example@gmail.com" , flagMessage:true, nombre:"", telefono:"",empresa:"" };
+        this.state = { email: "", dataQr:"example" , flagMessage:true, nombre:"", telefono:"",empresa:"" };
         this.handleChangeEmail=this.handleChangeEmail.bind(this)
         this.handleChangeName=this.handleChangeName.bind(this)
         this.handleChangePhone=this.handleChangePhone.bind(this)
@@ -27,10 +27,9 @@ class MyProfile extends React.Component {
 
  handleChangeEmail(email){
 
- console.log(email)
  this.setState(
-     {email:email,
-      email1:email
+     {...this,email:email
+     
     }
 
  )
@@ -38,7 +37,6 @@ class MyProfile extends React.Component {
  }
  handleChangeName(nombre){
 
-    console.log(nombre)
     this.setState(
         {...this, nombre:nombre
        }
@@ -47,7 +45,6 @@ class MyProfile extends React.Component {
 }
 handleChangePhone(telefono){
 
-    console.log(telefono)
     this.setState(
         {...this, telefono:telefono
        }
@@ -56,7 +53,6 @@ handleChangePhone(telefono){
 }
 handleChangeCompany(empresa){
 
-    console.log(empresa)
     this.setState(
         {...this, empresa:empresa
        }
@@ -72,6 +68,7 @@ handleChangeCompany(empresa){
     console.log(this.state.empresa)
 
     this.setState({
+        dataQr: this.state.nombre+this.state.email+this.state.telefono+this.state.empresa,
         flagMessage:!this.state.flagMessage
     })
 
@@ -79,7 +76,7 @@ handleChangeCompany(empresa){
 
   render() {
 
-    const {email, email1, flagMessage, nombre, telefono, empresa}=this.state;
+    const {email, dataQr, flagMessage, nombre, telefono, empresa}=this.state;
     const { navigation } = this.props;
     const cardContainer = [styles.card, styles.shadow];
 
@@ -162,7 +159,7 @@ handleChangeCompany(empresa){
 
     <Block flex row style={styles.QrContainer}>
     <QRCode
-      value={email1}
+      value={dataQr}
       
     />
     </Block>

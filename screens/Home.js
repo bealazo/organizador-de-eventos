@@ -12,9 +12,59 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     
-    this.state = { events: articles };
+    this.state = { events: [] };
    
   }
+
+
+  //Preparar el componente con las vistas a las que tiene que navegar por cada evento
+  componentDidMount(){
+
+    let events=articles
+      for (let index = 0; index < events.length; index++) {
+
+            if( events[index].title=="EXPOSITORES")
+             events[index].goto="Exhibitors"
+
+             if( events[index].title=="PLANOS")
+             events[index].goto="Blueprints"
+            
+             if( events[index].title=="INFORMACIÓN Y SERVICIOS")
+             events[index].goto="Infoservices"
+
+             if( events[index].title=="PROGRAMA")
+             events[index].goto="Program"
+
+             if( events[index].title=="REDES SOCIALES")
+             events[index].goto="Socials"
+
+             if( events[index].title=="REGISTRO ONLINE")
+             events[index].goto="https://abamobile.com/web/"
+            
+             if( events[index].title=="CÓMO LLEGAR")
+             events[index].goto="Map"
+
+             if( events[index].title=="COLABORADORES")
+             events[index].goto="Collaborators"
+
+             if( events[index].title=="INNOVACIONES TECNOLÓGICAS")
+             events[index].goto="Tech"
+
+             if( events[index].title=="AVISOS")
+             events[index].goto="Notices"
+
+             if( events[index].title=="TWITTER TIMELINE")
+             events[index].goto="Twitter"
+
+             if( events[index].title=="PONENTES")
+             events[index].goto="Speakers"
+      }
+
+      console.log(events)
+      this.setState({events:events})
+
+  }
+
   renderArticles = () => {
 
     const events=this.state.events;
@@ -58,7 +108,7 @@ class Home extends React.Component {
             </Block>
          </Block>
          <Block row style={styles.buttonContainer}>
-            <Button icon="heart" iconFamily="antdesign" iconSize={15} color="#4682B4" round iconColor="white">MIS FAVORITOS</Button>
+            <Button icon="heart" iconFamily="antdesign" iconSize={15} color="#4682B4" round iconColor="white" onPress={() => navigation.navigate('MyFavs')}>MIS FAVORITOS</Button>
          </Block>
          </>
         </TouchableWithoutFeedback>

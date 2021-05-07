@@ -1,25 +1,30 @@
 import React from 'react';
 import { withNavigation } from '@react-navigation/compat';
 import PropTypes from 'prop-types';
-import { StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, TouchableWithoutFeedback, Linking } from 'react-native';
 import { Block, Text, theme, Icon } from 'galio-framework';
 
 class Card extends React.Component {
+  
   render() {
-    const { navigation, item, horizontal, full, style, ctaColor, imageStyle } = this.props;
+    const { navigation, item, horizontal, style } = this.props;
     
     const cardContainer = [styles.card, styles.shadow, style];
   
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+        <TouchableWithoutFeedback onPress={() =>item.goto!="https://abamobile.com/web/"?navigation.navigate(item.goto): Linking.openURL(
+                "https://abamobile.com/web/"
+              ).catch(err => console.error("An error occurred", err))}>
           <Block flex row style={styles.iconContainer}>
             
             <Icon name={item.name} family="font-awesome" size={30} color="white" style={styles.icon} />
           </Block>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+        <TouchableWithoutFeedback onPress={() =>item.goto!="https://abamobile.com/web/"?navigation.navigate(item.goto): Linking.openURL(
+                "https://abamobile.com/web/"
+              ).catch(err => console.error("An error occurred", err))}>
           <Block flex space="between" style={styles.cardDescription}>
             <Text size={14} style={styles.cardTitle}>{item.title}</Text>
          </Block>
