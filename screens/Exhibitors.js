@@ -8,7 +8,6 @@ import {
 
 import { ListItem, Icon } from 'react-native-elements'
 
-
 const { width, height } = Dimensions.get("screen");
 
 
@@ -43,7 +42,7 @@ class Exhibitors extends React.Component {
         {
           title: 'Socios',
           icon: 'store',
-          goto:"Categories"
+          goto:"Socios"
         },
       
       ]
@@ -56,7 +55,7 @@ class Exhibitors extends React.Component {
                 <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:80}} 
                 onPress={() => navigation.navigate(item.goto) }>
                   <Icon name={item.icon} color='#4682B4'/>
-                  <ListItem.Content>
+                  <ListItem.Content>                 
                     <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.title}</ListItem.Title>
                   </ListItem.Content>
                   <ListItem.Chevron color='#4682B4'/>
