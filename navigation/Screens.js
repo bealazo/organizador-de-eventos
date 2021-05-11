@@ -20,13 +20,14 @@ import MyProfile from "../screens/MyProfile";
 import MyFavs from "../screens/MyFavs";
 import Exhibitors from "../screens/Exhibitors";
 import AllExhibitors from "../screens/AllExhibitors";
+import ExhibitorProfile from "../screens/ExhibitorProfile"
 
 // drawer
 import CustomDrawerContent from "./Menu";
 
 // header for screens
 import { Icon, Header } from "../components";
-import { argonTheme, tabs } from "../constants";
+
 
 const { width } = Dimensions.get("screen");
 
@@ -225,6 +226,14 @@ function HomeStack(props) {
           
         }}
       />
+     
+        <Stack.Screen
+        name="ExhibitorProfile"
+        component={ExhibitorProfile}
+      
+        options={({ route }) => ({ title: route.name })}
+      />
+
       <Stack.Screen
         name="Pro"
         component={Pro}

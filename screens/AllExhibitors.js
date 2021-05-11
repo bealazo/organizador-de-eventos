@@ -35,18 +35,61 @@ class AllExhibitors extends React.Component {
       //Cargar de BD la lista de expositores antes de montar el componente
       //DataSample    
     let list = [
+      {
+        id:5,
+        title: 'Raúl Fernández Hernández',
+        avatar: require('../assets/imgs/user5.jpeg'),
+        time:"13:00-15:00",
+        fav:false,
+
+        //para usar en la próxima pantalla "ExhibitorProfile"
+        blueprints:"Interior",
+        phone: "No disponible",
+        email:"raul.fernandez@abamobile.com",
+        address: "No disponible",
+        website: "http://abamobile.com/web/"
+
+      },
+
+      {
+        id:3,
+      title: 'NFC Leads',
+      avatar: require('../assets/imgs/product1.jpeg'),
+      time:"13:00-15:00",
+      fav:false,
+
+      blueprints:"General",
+      phone: "No disponible",
+      email:"No disponible",
+      address: "No disponible",
+      website: "http://nfcleads.com/"
+     
+    },
+   
       {   id:0,
           title: 'Alberto Sánchez Casado',
           avatar: require('../assets/imgs/user1.jpeg'),
           time:"13:00-15:00",
-          fav:false
+          fav:false,
+
+          blueprints:"Interior",
+          phone: 984111010,
+          email:"alberto.sanchez@abamobile.com",
+          address: "Edificio CEEI, Parque Tecnológico de Asturias, 33428",
+          website: "http://abamobile.com/web/"
         },
         {
           id:1,
           title: 'AppsForEvents',
           avatar: require('../assets/imgs/product2.jpeg'),
           time:"13:00-15:00",
-          fav:false
+          fav:false,
+
+          blueprints:"General",
+          phone: "No disponible",
+          email:"No disponible",
+          address: "No disponible",
+          website: "http://aplicacionesparaeventos.com/"
         },
   
       {
@@ -54,38 +97,52 @@ class AllExhibitors extends React.Component {
         title: 'Luis Nicieza Tuñón',
         avatar: require('../assets/imgs/user2.jpeg'),
         time:"13:00-15:00",
-        fav:false
+        fav:false,
+
+        blueprints:"Interior",
+        phone: "No disponible",
+        email:"luis.nicieza@abamobile.com",
+        address: "No disponible",
+        website: "http://abamobile.com/web/"
       },
-      {
-        id:3,
-      title: 'NFC Leads',
-      avatar: require('../assets/imgs/product1.jpeg'),
-      time:"13:00-15:00",
-      fav:false
-    },
+    
     {
       id:4,
       title: 'Nerea Sánchez Sánchez',
       avatar: require('../assets/imgs/user3.jpeg'),
       time:"13:00-15:00",
-      fav:false
+      fav:false,
+
+      blueprints:"Interior",
+      phone: "No disponible",
+      email:"nerea.sanchez@abamobile.com",
+      address: "No disponible",
+      website: "http://abamobile.com/web/"
     },
-    {
-      id:5,
-      title: 'Raúl Fernández Hernández',
-      avatar: require('../assets/imgs/user5.jpeg'),
-      time:"13:00-15:00",
-      fav:false
-    },
+   
     {
       id:6,
       title: 'weQuiz',
       avatar: require('../assets/imgs/product4.jpeg'),
       time:"13:00-15:00",
-      fav:false
+      fav:false,
+
+      blueprints:"No disponible",
+      phone: "No disponible",
+      email:"No disponible",
+      address: "No disponible",
+      website: "http://wequiz.es/"
     },
     
     ]
+
+    //Ordenar alfabéticamente
+    list.sort((a, b) => {
+      if(a.title < b.title) return -1;
+      if(a.title > b.title) return 1;
+  
+      return 0;
+  })
 
     //Asignar a variable de estado:
     this.setState({
@@ -130,7 +187,7 @@ class AllExhibitors extends React.Component {
              list.map((item, i) => (
             
                 <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:120, marginBottom:5}} 
-                onPress={() => navigation.navigate("Home") }>         
+                onPress={() => navigation.navigate("ExhibitorProfile", { item: item })}>         
                 
                   <Avatar rounded size="large" source={item.avatar}/>  
                  
