@@ -4,7 +4,7 @@ import { Block, theme, Icon, Text, Button} from 'galio-framework';
 
 
 import { Card } from '../components';
-import articles from '../constants/articles';
+//import articles from '../constants/articles';
 const { width, height } = Dimensions.get('screen');
 
 class Home extends React.Component {
@@ -12,7 +12,83 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     
-    this.state = { events: [] };
+    this.state = {
+       events: [
+
+        {
+          title: 'EXPOSITORES',
+          name: 'users',
+              
+         
+        },
+        {
+          title: 'PLANOS',
+          name: 'sticky-note-o',
+         
+         
+        },
+        {
+          title: 'INFORMACIÓN Y SERVICIOS',
+          name: 'info-circle',
+        
+         
+        },
+        {
+          title: 'PROGRAMA',
+          name: 'calendar',
+       
+         
+        },
+        {
+          title: 'REDES SOCIALES',
+          name: 'thumbs-o-up',
+       
+         
+        }
+        ,{
+          title: 'REGISTRO ONLINE',
+          name: 'internet-explorer',
+         
+        },
+        {
+          title: 'CÓMO LLEGAR',
+          name: 'map-o',
+        
+         
+        },
+        {
+          title: 'COLABORADORES',
+          name: 'handshake-o',
+        
+        },
+        {
+          title: 'INNOVACIONES TECNOLÓGICAS',
+          name: 'lightbulb-o',
+          
+         
+        },
+        {
+          title: 'AVISOS',
+          name: 'bullhorn',
+          
+         
+        },
+        {
+          title: 'TWITTER TIMELINE',
+          name: 'twitter',
+         
+         
+        },
+        {
+          title: 'PONENTES',
+          name: 'users',
+        
+         
+        }
+       ] 
+      
+      
+      };
    
   }
 
@@ -20,7 +96,7 @@ class Home extends React.Component {
   //Preparar el componente con las vistas a las que tiene que navegar por cada evento
   componentDidMount(){
 
-    let events=articles
+    let events=this.state.events
       for (let index = 0; index < events.length; index++) {
 
             if( events[index].title=="EXPOSITORES")
@@ -30,13 +106,13 @@ class Home extends React.Component {
              events[index].goto="Blueprints"
             
              if( events[index].title=="INFORMACIÓN Y SERVICIOS")
-             events[index].goto="Infoservices"
+             events[index].goto="InfoServices"
 
              if( events[index].title=="PROGRAMA")
              events[index].goto="Program"
 
              if( events[index].title=="REDES SOCIALES")
-             events[index].goto="Socials"
+             events[index].goto="SocialMedia"
 
              if( events[index].title=="REGISTRO ONLINE")
              events[index].goto="https://abamobile.com/web/"

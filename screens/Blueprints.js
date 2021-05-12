@@ -11,9 +11,9 @@ import { ListItem, Icon } from 'react-native-elements'
 const { width, height } = Dimensions.get("screen");
 
 
-//Vista para Expositores
+//Vista para Planos
 
-class Exhibitors extends React.Component {
+class Blueprints extends React.Component {
 
     constructor(props) {
         super(props);
@@ -26,25 +26,18 @@ class Exhibitors extends React.Component {
 
     const { navigation } = this.props;
 
-    //Lista de categorías de expositores
+    //Lista de tipo de planos
     const list = [
         {
-            title: 'Todos',
-            icon: 'store',
-            goto:"All"
+            title: 'General',
+            icon: 'layers',
+            goto:"General"
           },
           {
-            title: 'Productos',
-            icon: 'store',
-            goto:"Products"
-          },
-    
-        {
-          title: 'Socios',
-          icon: 'store',
-          goto:"Socios"
-        },
-      
+            title: 'Interior',
+            icon: 'layers',
+            goto:"Interior"
+          },          
       ]
    
     return (
@@ -54,7 +47,7 @@ class Exhibitors extends React.Component {
              list.map((item, i) => (
                 <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:80, marginBottom:5}} 
                 onPress={() => navigation.navigate(item.goto) }>
-                  <Icon name={item.icon} color='#4682B4' size={40}/>
+                  <Icon name={item.icon} size={40} color='#4682B4'/>
                   <ListItem.Content>                 
                     <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.title}</ListItem.Title>
                   </ListItem.Content>
@@ -69,4 +62,4 @@ class Exhibitors extends React.Component {
 }
 
 
-export default Exhibitors;
+export default Blueprints;

@@ -2,18 +2,19 @@ import React from "react";
 import {
  
   Dimensions,
-  View
- 
+  View,
+  Linking 
 } from "react-native";
 
-import { ListItem, Icon } from 'react-native-elements'
+import { ListItem } from 'react-native-elements'
+import { Icon } from 'galio-framework'
 
 const { width, height } = Dimensions.get("screen");
 
 
-//Vista para Expositores
+//Vista para Categorías de Documentos
 
-class Exhibitors extends React.Component {
+class Documents extends React.Component {
 
     constructor(props) {
         super(props);
@@ -26,24 +27,13 @@ class Exhibitors extends React.Component {
 
     const { navigation } = this.props;
 
-    //Lista de categorías de expositores
+    //Lista de categorías
     const list = [
         {
-            title: 'Todos',
-            icon: 'store',
-            goto:"All"
-          },
-          {
-            title: 'Productos',
-            icon: 'store',
-            goto:"Products"
-          },
-    
-        {
-          title: 'Socios',
-          icon: 'store',
-          goto:"Socios"
-        },
+            title: 'ABAMobile',
+            icon: 'internet-explorer',
+            goto:"https://abamobile.com/web/"
+          }
       
       ]
    
@@ -53,8 +43,9 @@ class Exhibitors extends React.Component {
             {
              list.map((item, i) => (
                 <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:80, marginBottom:5}} 
-                onPress={() => navigation.navigate(item.goto) }>
-                  <Icon name={item.icon} color='#4682B4' size={40}/>
+                onPress={() => Linking.openURL(
+                    item.goto).catch(err => console.error("An error occurred", err))}>
+                  <Icon name={item.icon} family="font-awesome" color='#4682B4' size={40}/>
                   <ListItem.Content>                 
                     <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.title}</ListItem.Title>
                   </ListItem.Content>
@@ -69,4 +60,4 @@ class Exhibitors extends React.Component {
 }
 
 
-export default Exhibitors;
+export default Documents;

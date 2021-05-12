@@ -27,6 +27,19 @@ class DrawerItem extends React.Component {
       case "EXPOSITORES":
         navigation.navigate("Exhibitors")
         break;
+
+      case "MAPAS":
+        navigation.navigate("Blueprints")
+        break;
+      case "REDES SOCIALES":
+        navigation.navigate("SocialMedia")
+        break;
+      case "INFORMACIÓN Y DOCUMENTACIÓN":
+        navigation.navigate("InfoServices")
+        break;
+      case "AGENDA":
+        navigation.navigate("Program")
+        break;      
          
       default:
         return null;

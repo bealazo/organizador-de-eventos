@@ -20,7 +20,18 @@ import MyProfile from "../screens/MyProfile";
 import MyFavs from "../screens/MyFavs";
 import Exhibitors from "../screens/Exhibitors";
 import AllExhibitors from "../screens/AllExhibitors";
-import ExhibitorProfile from "../screens/ExhibitorProfile"
+import ExhibitorProfile from "../screens/ExhibitorProfile";
+import Products from "../screens/Products";
+import Socios from "../screens/Socios";
+import Blueprints from "../screens/Blueprints";
+import General from "../screens/General";
+import Interior from "../screens/Interior";
+import SocialMedia from "../screens/SocialMedia";
+import InfoServices from "../screens/InfoServices";
+import Documents from "../screens/Documents";
+import WebAbamobile from "../screens/WebAbamobile";
+import WeQuiz from "../screens/WeQuiz";
+import Program from "../screens/Program";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -226,6 +237,29 @@ function HomeStack(props) {
           
         }}
       />
+
+      <Stack.Screen
+        name="Products"
+        component={Products}
+      
+        options={{
+       
+              title:"PRODUCTOS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+      />  
+       <Stack.Screen
+        name="Socios"
+        component={Socios}
+      
+        options={{
+       
+              title:"SOCIOS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+      />        
      
         <Stack.Screen
         name="ExhibitorProfile"
@@ -233,6 +267,108 @@ function HomeStack(props) {
       
         options={({ route }) => ({ title: route.name })}
       />
+
+      <Stack.Screen
+        name="Blueprints"
+        component={Blueprints}
+      
+        options={{
+       
+              title:"PLANOS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+      />        
+      <Stack.Screen
+        name="General"
+        component={General}
+      
+        options={{
+       
+              title:"GENERAL",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+       <Stack.Screen
+        name="Interior"
+        component={Interior}
+      
+        options={{
+       
+              title:"INTERIOR",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+       <Stack.Screen
+        name="SocialMedia"
+        component={SocialMedia}
+      
+        options={{
+       
+              title:"REDES SOCIALES",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+       <Stack.Screen
+        name="InfoServices"
+        component={InfoServices}
+      
+        options={{
+       
+              title:"CATEGORÍAS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+        <Stack.Screen
+        name="Documents"
+        component={Documents}
+      
+        options={{
+       
+              title:"CATEGORÍAS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+        <Stack.Screen
+        name="WebAbamobile"
+        component={WebAbamobile}
+      
+        options={{
+       
+              title:"CATEGORÍAS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+        <Stack.Screen
+        name="WeQuiz"
+        component={WeQuiz}
+      
+        options={{
+       
+              title:"WEQUIZ",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+       <Stack.Screen
+        name="Program"
+        component={Program}
+      
+        options={{
+       
+              title:"PROGRAMA",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+
+
 
       <Stack.Screen
         name="Pro"
