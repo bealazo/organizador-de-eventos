@@ -56,7 +56,8 @@ class Program extends React.Component {
                 subtitle: "ABAMobile",
                 description: "Somos una empresa de desarrollo de aplicaciones móviles. Creamos apps nativas para Android, iOS y dispositivos wearables. Nos ocupamos de todo el proceso, desde el diseño hasta el desarrollo de la aplicación móvil y posteriores actualizaciones. ",
                 ponente: "Alberto Sánchez Casado",
-                website: "http://abamobile.com/web/"
+                website: "http://abamobile.com/web/",
+                rating:0
 
               },
               {
@@ -69,7 +70,8 @@ class Program extends React.Component {
                 subtitle: "ABAMobile",
                 description: "Somos una empresa de desarrollo de aplicaciones móviles. Creamos apps nativas para Android, iOS y dispositivos wearables. Nos ocupamos de todo el proceso, desde el diseño hasta el desarrollo de la aplicación móvil y posteriores actualizaciones. ",
                 ponente: "Nerea Sánchez Sánchez",
-                website: "http://abamobile.com/web/nosotros"
+                website: "http://abamobile.com/web/nosotros",
+                rating:0
               },
               {
                 id:2,
@@ -81,7 +83,8 @@ class Program extends React.Component {
                 subtitle: "ABAMobile",
                 description: "Consulte algunos de los trabajos realizados por ABAMobile",
                 ponente: "Raúl Fernández Fernández",
-                website: "http://abamobile.com/web/trabajos"
+                website: "http://abamobile.com/web/trabajos",
+                rating:0
               }
             ]
            

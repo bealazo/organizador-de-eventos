@@ -12,6 +12,8 @@ import {
 import { Card, Avatar } from 'react-native-elements'
 import { Button, Block,Icon, theme} from 'galio-framework';
 
+import { Rating, AirbnbRating } from 'react-native-elements';
+
 const { width, height } = Dimensions.get("screen");
 
 
@@ -25,9 +27,11 @@ class ConferenceProfile extends React.Component {
         this.state={
         //Recoger el objeto que pasé por parámetro desde la vista anterior
           item:this.props.route.params.item,
+
           
         }
         this.handleFav=this.handleFav.bind(this)
+        this.handleRating=this.handleRating.bind(this)
     }
     
     componentDidMount(){
@@ -50,9 +54,24 @@ class ConferenceProfile extends React.Component {
  
     }
 
+     //Valorar conferencia
+     handleRating(rating){
+
+      console.log(rating)   
+       //***Conectar a BD para guardar***
+
+       //Para el Ejemplo :
+       let item=this.state.item
+       item.rating=rating   
+       this.setState({item:item})
+ 
+    }
+
+
   render() {
 
     const { navigation } = this.props;
+   
     const item=this.state.item;
   
     return (
@@ -147,6 +166,23 @@ class ConferenceProfile extends React.Component {
                     
                     </TouchableWithoutFeedback>
 
+                </Block>
+
+                <Block row style={{justifyContent:"center", marginTop:25}}>   
+                <Rating
+                    type="custom"
+                    ratingCount={4}
+                    style={{ paddingVertical: 10}}
+                    ratingColor='#4682B4'
+                    startingValue={item.rating}
+                    onFinishRating={this.handleRating}
+                    
+                 />
+         
+                </Block>
+
+                <Block row style={{justifyContent:"center", marginTop:5}}>   
+                  <Card.Title style={{ color: '#4682B4', fontSize:15 }}>Valora la Conferencia</Card.Title>                             
                 </Block>
 
 
