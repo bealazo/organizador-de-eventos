@@ -78,7 +78,7 @@ class ExhibitorProfile extends React.Component {
 
                   <Block row style={{justifyContent:"center"}}>
 
-                    <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+                    <TouchableWithoutFeedback onPress={() => item.blueprints=="Interior"?navigation.navigate('Interior'):navigation.navigate('General')}>
                     
                     <Block style={{width:width*0.5}}>
 

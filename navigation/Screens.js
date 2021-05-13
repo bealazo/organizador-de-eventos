@@ -32,6 +32,8 @@ import Documents from "../screens/Documents";
 import WebAbamobile from "../screens/WebAbamobile";
 import WeQuiz from "../screens/WeQuiz";
 import Program from "../screens/Program";
+import Conferences from "../screens/Conferences";
+import ConferenceProfile from "../screens/ConferenceProfile";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -367,6 +369,27 @@ function HomeStack(props) {
           
         }}
        /> 
+      <Stack.Screen
+        name="Conferences"
+        component={Conferences}
+      
+        options={{
+       
+              title:"CONFERENCIAS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+        <Stack.Screen
+        name="ConferenceProfile"
+        component={ConferenceProfile}
+      
+        options={({ route }) => ({ title: route.name })}
+      />
+
+
+
+
 
 
 
