@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView, Image, TouchableWithoutFeedback, Linking } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, TouchableWithoutFeedback, Linking, Alert } from 'react-native';
 import { Block, theme, Icon, Text, Button} from 'galio-framework';
 
 
 import { Card } from '../components';
-//import articles from '../constants/articles';
 const { width, height } = Dimensions.get('screen');
+
+import Utils from '../constants/utils_const';
+
 
 class Home extends React.Component {
 
@@ -85,60 +87,98 @@ class Home extends React.Component {
         
          
         }
-       ] 
+       ] ,
       
+       datos:{},
+       rutaimagen:null,
+       webregistro:null
       
       };
    
   }
 
 
-  //Preparar el componente con las vistas a las que tiene que navegar por cada evento
   componentDidMount(){
 
-    let events=this.state.events
-      for (let index = 0; index < events.length; index++) {
 
-            if( events[index].title=="EXPOSITORES")
-             events[index].goto="Exhibitors"
+    //Obtener los datos del evento
 
-             if( events[index].title=="PLANOS")
-             events[index].goto="Blueprints"
-            
-             if( events[index].title=="INFORMACIÓN Y SERVICIOS")
-             events[index].goto="InfoServices"
+  let datos={}
 
-             if( events[index].title=="PROGRAMA")
-             events[index].goto="Program"
+  let url = new URL("http://aplicacionesparaeventos.com/web/json/v1/evento/datos")
+   const params = {idEvento: 1};
+      Object.keys(params).forEach(key => url.searchParams.append(key, params[key])); 
+      const dataRequest = {
+         method: 'GET',
+         headers: new Headers({
+          idioma: "es",
+          Aceppt: "application/json"
+        })
+      };
+    fetch(url, dataRequest).then(Utils.processResponse)
+     .then(res => {
+       const { statusCode, data } = res;
+       if (statusCode === 200) {
+           console.log(data)
+           datos=data
+          
+            //Preparar el componente con las vistas a las que tiene que navegar por cada evento
 
-             if( events[index].title=="REDES SOCIALES")
-             events[index].goto="SocialMedia"
+              let events=this.state.events
+              for (let index = 0; index < events.length; index++) {
 
-             if( events[index].title=="REGISTRO ONLINE")
-             events[index].goto="https://abamobile.com/web/"
-            
-             if( events[index].title=="CÓMO LLEGAR")
-             events[index].goto="Map"
+                    if( events[index].title=="EXPOSITORES")
+                    events[index].goto="Exhibitors"
 
-             if( events[index].title=="COLABORADORES")
-             events[index].goto="Collaborators"
+                    if( events[index].title=="PLANOS")
+                    events[index].goto="Blueprints"
+                    
+                    if( events[index].title=="INFORMACIÓN Y SERVICIOS")
+                    events[index].goto="InfoServices"
 
-             if( events[index].title=="INNOVACIONES TECNOLÓGICAS")
-             events[index].goto="Tech"
+                    if( events[index].title=="PROGRAMA")
+                    events[index].goto="Program"
 
-             if( events[index].title=="AVISOS")
-             events[index].goto="Notices"
+                    if( events[index].title=="REDES SOCIALES")
+                    events[index].goto="SocialMedia"
 
-             if( events[index].title=="TWITTER TIMELINE")
-             events[index].goto="Twitter"
+                    if( events[index].title=="REGISTRO ONLINE")
+                    //coger la url que viene en los datos
+                    events[index].goto=data.datos.informacion.webRegistro
+                    
+                    if( events[index].title=="CÓMO LLEGAR")
+                    events[index].goto="Map"
 
-             if( events[index].title=="PONENTES")
-             events[index].goto="Speakers"
-      }
+                    if( events[index].title=="COLABORADORES")
+                    events[index].goto="Collaborators"
 
-      console.log(events)
-      this.setState({events:events})
+                    if( events[index].title=="INNOVACIONES TECNOLÓGICAS")
+                    events[index].goto="Tech"
 
+                    if( events[index].title=="AVISOS")
+                    events[index].goto="Notices"
+
+                    if( events[index].title=="TWITTER TIMELINE")
+                    events[index].goto="Twitter"
+
+                    if( events[index].title=="PONENTES")
+                    events[index].goto="Speakers"
+              }
+
+              this.setState({events:events,datos:data, rutaimagen:data.datos.informacion.rutaBannerFormatServidor})
+      
+
+                  } else {
+                    Alert.alert('Error', data.message);
+                  }
+                
+              })
+              .catch(error => console.log(error)); 
+              
+
+
+
+ 
   }
 
   renderArticles = () => {
@@ -146,6 +186,10 @@ class Home extends React.Component {
     const events=this.state.events;
     const cardContainer = [styles.card, styles.shadow];
     const { navigation } = this.props;
+    //datos del evento
+    const datos=this.state.datos;
+    //ruta de la imagen que viene en los datos
+    const rutaimagen=this.state.rutaimagen;
 
     return (
      <ScrollView
@@ -158,7 +202,9 @@ class Home extends React.Component {
                 "http://wequiz.es"
               ).catch(err => console.error("An error occurred", err))}>
           <Image
-              source={require('../assets/imgs/banner1.jpeg')}     
+              source={{
+                uri: 'http://aplicacionesparaeventos.com'+rutaimagen
+              }}   
               style={styles.img}   
              
           />
@@ -203,7 +249,8 @@ class Home extends React.Component {
 
         <Block flex style={styles.imgContainer1} >
         <TouchableWithoutFeedback onPress={() => Linking.openURL(
-                "https://abamobile.com"
+          // coger el enlace del banner que viene en los datos
+                datos.datos.informacion.enlaceBanner
               ).catch(err => console.error("An error occurred", err))}>
           <Image
               source={require('../assets/imgs/banner2.jpeg')}     

@@ -14,9 +14,9 @@ class Card extends React.Component {
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback onPress={() =>item.goto!="https://abamobile.com/web/"?navigation.navigate(item.goto): Linking.openURL(
-                "https://abamobile.com/web/"
-              ).catch(err => console.error("An error occurred", err))}>
+        <TouchableWithoutFeedback onPress={() =>item.goto.startsWith("http")||item.goto.startsWith("https")? Linking.openURL(
+                item.goto
+              ).catch(err => console.error("An error occurred", err)):navigation.navigate(item.goto)}>
           <Block flex row style={styles.iconContainer}>
             
             <Icon name={item.name} family="font-awesome" size={30} color="white" style={styles.icon} />

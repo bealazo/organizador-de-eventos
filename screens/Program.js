@@ -5,7 +5,8 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
   Image,
-  Linking
+  Linking,
+  Alert
  
 } from "react-native";
 
@@ -13,8 +14,8 @@ import { ListItem } from 'react-native-elements'
 import { Block, theme, Icon} from 'galio-framework';
 
 
-
 const { width, height } = Dimensions.get("screen");
+import Utils from '../constants/utils_const';
 
 
 //Vista para el Programa
@@ -35,6 +36,30 @@ class Program extends React.Component {
     componentDidMount(){
 
       //Cargar de BD la lista de programas antes de montar el componente
+      console.log("program")
+      let url = new URL("http://aplicacionesparaeventos.com/web/json/v1/programas/list")
+   const params = {idEvento: 1};
+      Object.keys(params).forEach(key => url.searchParams.append(key, params[key])); 
+      const dataRequest = {
+         method: 'GET',
+         headers: new Headers({
+          idioma: "es",
+          Aceppt: "application/json"
+        })
+      };
+    fetch(url, dataRequest).then(Utils.processResponse)
+     .then(res => {
+       const { statusCode, data } = res;
+       if (statusCode === 200) {
+           console.log(data)
+         } else {
+           Alert.alert('Error', data.message);
+         }
+       
+     })
+     .catch(error => console.log(error)); 
+
+
       //DataSample    
     let list = [
 
