@@ -34,6 +34,7 @@ import WeQuiz from "../screens/WeQuiz";
 import Program from "../screens/Program";
 import Conferences from "../screens/Conferences";
 import ConferenceProfile from "../screens/ConferenceProfile";
+import TwitterTimeline from "../screens/TwitterTimeline";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -386,6 +387,19 @@ function HomeStack(props) {
       
         options={({ route }) => ({ title: route.name })}
       />
+
+        <Stack.Screen
+        name="TwitterTimeline"
+        component={TwitterTimeline}
+      
+        options={{
+       
+          title:"TWITTER TIMELINE",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+
 
 
 

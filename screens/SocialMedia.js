@@ -74,8 +74,15 @@ class SocialMedia extends React.Component {
               {
                 title: 'Twitter Timeline',
                 icon: 'twitter-square',
-                goto:"Home",
-                color: "#00acee"
+                goto:"TwitterTimeline",
+                color: "#00acee",
+
+                //para configurar el timeline
+                timeline:{
+                  id:data.datos.informacion.idHashtag,
+                  hashtag:data.datos.informacion.hashtag,
+                  url: data.datos.informacion.twitter
+                }
               }, 
               {
                 title: 'Linkedin',
@@ -112,7 +119,7 @@ class SocialMedia extends React.Component {
              list.map((item, i) => (
                 <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:80, marginBottom:5}} 
                 onPress={() => item.title!="Twitter Timeline"?Linking.openURL(
-                   item.goto).catch(err => console.error("An error occurred", err)):navigation.navigate(item.goto)}>
+                   item.goto).catch(err => console.error("An error occurred", err)):navigation.navigate(item.goto, { timeline: item.timeline })}>
                   <Icon name={item.icon} size={40} family="font-awesome" color={item.color}/>
                   <ListItem.Content>                 
                     <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.title}</ListItem.Title>
