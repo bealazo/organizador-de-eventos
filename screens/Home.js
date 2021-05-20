@@ -158,8 +158,16 @@ class Home extends React.Component {
                     if( events[index].title=="AVISOS")
                     events[index].goto="Notices"
 
-                    if( events[index].title=="TWITTER TIMELINE")
-                    events[index].goto="Twitter"
+                    if( events[index].title=="TWITTER TIMELINE"){
+                    events[index].goto="TwitterTimeline"
+
+                     //para configurar el timeline
+                    events[index].timeline={
+                        id:data.datos.informacion.idHashtag,
+                        hashtag:data.datos.informacion.hashtag,
+                        url: data.datos.informacion.twitter
+                       }
+                    }
 
                     if( events[index].title=="PONENTES")
                     events[index].goto="Speakers"

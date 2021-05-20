@@ -24,6 +24,9 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "Organizador de eventos"
+    "description": "Organizador de eventos",
+    "android": {
+      "package": "es.android.AppsForEvents"
+    }
   }
 }

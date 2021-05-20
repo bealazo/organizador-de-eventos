@@ -37,7 +37,7 @@ class ConferenceProfile extends React.Component {
     componentDidMount(){
 
     //Setear el título de la vista con el nombre del expositor antes de montar el componente:
-      this.props.navigation.setOptions({ title: this.state.item.title})
+      this.props.navigation.setOptions({ title: this.state.item.titulo})
 
     }
     
@@ -86,22 +86,24 @@ class ConferenceProfile extends React.Component {
           <Card containerStyle={{backgroundColor:"#F2F2F2", borderRadius:10}}>
 
                  <Block flex row style={{justifyContent:"flex-end"}}>
-                  <Button style={{width:120, height:30}} icon={item.fav==false?"heart-o":"heart"} iconFamily="font-awesome" iconSize={12} color="#4682B4" round iconColor="white" onPress={() => this.handleFav()}>FAVORITO</Button>                            
+                  <Button style={{width:120, height:30}} icon={item.fav==undefined||item.fav==false?"heart-o":"heart"} iconFamily="font-awesome" iconSize={12} color="#4682B4" round iconColor="white" onPress={() => this.handleFav()}>FAVORITO</Button>                            
                   </Block>
 
-                  <Avatar rounded size="xlarge" source={item.avatar}/>  
+                  <Avatar rounded size="xlarge"  source={{
+                      uri: 'http://aplicacionesparaeventos.com'+item.rutaImagenFormatServidor
+                   }}/>    
       
                   <Block style={{marginTop:-80, marginLeft:width*0.35}} >                   
-                  <Card.Title style={{ color: '#4682B4', fontSize:20 }}>{item.title} {item.subtitle}</Card.Title>                
+                  <Card.Title style={{ color: '#4682B4', fontSize:20 }}>{item.titulo} {"\n"} {item.organismo}</Card.Title>                
                   </Block>
 
                   <Block row style={{justifyContent:"flex-start", marginTop:25}}>                   
-                  <Card.Title style={{ color: '#4682B4', fontSize:15  }}>{item.time}</Card.Title>                
+                  <Card.Title style={{ color: '#4682B4', fontSize:15  }}>{new Date(item.fecha).toLocaleDateString('en-GB') +" - "+ item.hora_inicio}</Card.Title>                
                   </Block>
 
                   
                   <Block row style={{justifyContent:"center", marginTop:1}}>                   
-                  <Text style={{ fontSize:15  }}>{item.description}</Text>                
+                  <Text style={{ fontSize:15  }}>{item.datos}</Text>                
                   </Block>
 
 
@@ -112,11 +114,11 @@ class ConferenceProfile extends React.Component {
                     <Block style={{width:width*0.5}}>
 
                     <Block row style={{justifyContent:"center", marginTop:height*0.05}}>                    
-                    <Icon name= "user" family="font-awesome" size={35} color={item.ponente=="No disponible"?"#C3C3C5":"#4682B4"}></Icon>                  
+                    <Icon name= "user" family="font-awesome" size={35} color={item.ponentes[0].nombre=="No disponible"?"#C3C3C5":"#4682B4"}></Icon>                  
                     </Block>
 
                     <Block row style={{justifyContent:"center"}}>                              
-                    <Text style={{color:item.ponente=="No disponible"?"#C3C3C5":"#4682B4",width:width*0.3}}>{item.ponente}</Text>                                   
+                    <Text style={{color:item.ponentes[0].nombre=="No disponible"?"#C3C3C5":"#4682B4",width:width*0.3}}>{item.ponentes[0].nombre}</Text>                                   
                     </Block>
                 
                       
@@ -129,16 +131,16 @@ class ConferenceProfile extends React.Component {
                     <Block style={{ height: height*0.07, width: 1, backgroundColor:"#C3C3C5"}}></Block>  
 
 
-                    <TouchableWithoutFeedback onPress={() =>item.website!="No disponible"?Linking.openURL(item.website):null}>
+                    <TouchableWithoutFeedback onPress={() =>item.nombreEnlace!="No disponible"?Linking.openURL(item.hrefEnlace):null}>
                     
                     <Block style={{width:width*0.5}}>
 
                     <Block row style={{justifyContent:"center", marginTop:height*0.05}}>                    
-                    <Icon name= "internet-explorer" family="font-awesome" size={35} color={item.website=="No disponible"?"#C3C3C5":"#4682B4"}></Icon>                  
+                    <Icon name= "internet-explorer" family="font-awesome" size={35} color={item.nombreEnlace=="No disponible"?"#C3C3C5":"#4682B4"}></Icon>                  
                     </Block>
 
                     <Block row style={{justifyContent:"center"}}>                              
-                    <Text style={{color:item.website=="No disponible"?"#C3C3C5":"#4682B4"}}>Más{"\n"}información</Text>                                   
+                    <Text style={{color:item.nombreEnlace=="No disponible"?"#C3C3C5":"#4682B4"}}>{item.nombreEnlace}</Text>                                   
                     </Block>
                 
                    
@@ -154,11 +156,11 @@ class ConferenceProfile extends React.Component {
                     <Block style={{width:width*0.5}}>
 
                     <Block row style={{justifyContent:"center", marginTop:height*0.05}}>                    
-                    <Icon name= "calendar" family="font-awesome" size={35} color={item.time=="No disponible"?"#C3C3C5":"#4682B4"}></Icon>                  
+                    <Icon name= "calendar" family="font-awesome" size={35} color={item.fecha=="No disponible"?"#C3C3C5":"#4682B4"}></Icon>                  
                     </Block>
 
                     <Block row style={{justifyContent:"center"}}>                              
-                    <Text style={{color:item.time=="No disponible"?"#C3C3C5":"#4682B4"}}>Añadir al{"\n"}calendario</Text>                                   
+                    <Text style={{color:item.fecha=="No disponible"?"#C3C3C5":"#4682B4"}}>Añadir al{"\n"}calendario</Text>                                   
                     </Block>
                 
                   
@@ -174,7 +176,7 @@ class ConferenceProfile extends React.Component {
                     ratingCount={4}
                     style={{ paddingVertical: 10}}
                     ratingColor='#4682B4'
-                    startingValue={item.rating}
+                    startingValue={item.rating==undefined?0:item.rating}
                     onFinishRating={this.handleRating}
                     
                  />

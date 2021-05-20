@@ -16,7 +16,7 @@ class Card extends React.Component {
       <Block row={horizontal} card flex style={cardContainer}>
         <TouchableWithoutFeedback onPress={() =>item.goto.startsWith("http")||item.goto.startsWith("https")? Linking.openURL(
                 item.goto
-              ).catch(err => console.error("An error occurred", err)):navigation.navigate(item.goto)}>
+              ).catch(err => console.error("An error occurred", err)):item.goto=="TwitterTimeline"?navigation.navigate(item.goto,{timeline:item.timeline}):navigation.navigate(item.goto)}>
           <Block flex row style={styles.iconContainer}>
             
             <Icon name={item.name} family="font-awesome" size={30} color="white" style={styles.icon} />

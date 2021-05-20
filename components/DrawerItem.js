@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, Linking } from "react-native";
 import { Block, Text, theme } from "galio-framework";
 
-import Icon from "./Icon";
 import argonTheme from "../constants/Theme";
 
 class DrawerItem extends React.Component {
@@ -34,12 +33,12 @@ class DrawerItem extends React.Component {
       case "REDES SOCIALES":
         navigation.navigate("SocialMedia")
         break;
-      case "INFORMACIÓN Y DOCUMENTACIÓN":
+     case "INFORMACIÓN Y DOCUMENTACIÓN":
         navigation.navigate("InfoServices")
         break;
       case "AGENDA":
         navigation.navigate("Program")
-        break;      
+        break; 
          
       default:
         return null;

@@ -25,7 +25,8 @@ class Conferences extends React.Component {
         this.state={
             
            //Recoger la lista que pasé por parámetro desde la vista anterior
-           list:this.props.route.params.item.conferences,
+           list:this.props.route.params.item.conferencias,
+
                    
         }
         this.handleFav=this.handleFav.bind(this)
@@ -42,7 +43,7 @@ class Conferences extends React.Component {
        let list = this.state.list
 
        for (let index = 0; index < list.length; index++) {
-         if(list[index].id==item.id)
+         if(list[index].idConferencia==item.idConferencia)
 
          list[index].fav=!list[index].fav
         
@@ -57,7 +58,7 @@ class Conferences extends React.Component {
 
     const { navigation } = this.props;
     const list=this.state.list;
-       
+   
     return (
                  
       <ScrollView
@@ -69,18 +70,20 @@ class Conferences extends React.Component {
                 <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:120, marginBottom:5}} 
                 onPress={() => navigation.navigate("ConferenceProfile", { item: item })}>         
                 
-                  <Avatar rounded size="large" source={item.avatar}/>  
+                  <Avatar rounded size="large" source={{
+                      uri: 'http://aplicacionesparaeventos.com'+item.rutaImagenFormatServidor
+                   }}/>  
                  
                   <ListItem.Content>
 
                     <Block flex style={{marginLeft:width*0.35, marginTop:-10}}>
-                   <Button style={{width:120, height:30}} icon={item.fav==false?"heart-o":"heart"} iconFamily="font-awesome" iconSize={12} color="#4682B4" round iconColor="white" onPress={() => this.handleFav(item)}>FAVORITO</Button>                            
+                   <Button style={{width:120, height:30}} icon={item.fav==undefined||item.fav==false?"heart-o":"heart"} iconFamily="font-awesome" iconSize={12} color="#4682B4" round iconColor="white" onPress={() => this.handleFav(item)}>FAVORITO</Button>                            
                    </Block>
 
                    <Block >
-                    <ListItem.Subtitle>{item.time}</ListItem.Subtitle>                    
+                    <ListItem.Subtitle>{item.hora_inicio +"-"+ item.hora_fin}</ListItem.Subtitle>                    
                     
-                    <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.title}</ListItem.Title>                    
+                    <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.titulo}</ListItem.Title>                    
                     </Block>
 
                   </ListItem.Content>                 
