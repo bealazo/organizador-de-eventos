@@ -35,6 +35,7 @@ import Program from "../screens/Program";
 import Conferences from "../screens/Conferences";
 import ConferenceProfile from "../screens/ConferenceProfile";
 import TwitterTimeline from "../screens/TwitterTimeline";
+import PonenteProfile from "../screens/PonenteProfile";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -120,41 +121,7 @@ function ArticlesStack(props) {
 function ProfileStack(props) {
   return (
     <Stack.Navigator initialRouteName="MyProfile" mode="card" headerMode="screen">
-      {/*  <Stack.Screen
-        name="MyProfile"
-        component={MyProfile}
       
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-            
-              title="MI PERFIL"
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          cardStyle: { backgroundColor: "#F8F9FE" },
-          
-        }}
-      /> */}
-      {/* <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              transparent
-              white
-              title="Profile"
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          cardStyle: { backgroundColor: "#FFFFFF" },
-          headerTransparent: true
-        }}
-      /> */}
-
       <Stack.Screen
         name="Pro"
         component={Pro}
@@ -399,6 +366,12 @@ function HomeStack(props) {
           
         }}
        /> 
+        <Stack.Screen
+        name="PonenteProfile"
+        component={PonenteProfile}
+      
+        options={({ route }) => ({ title: route.name })}
+      />
 
 
 

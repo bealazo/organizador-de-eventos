@@ -109,7 +109,7 @@ class ConferenceProfile extends React.Component {
 
                 <Block style={{ alignItems: 'center', flexDirection: 'row', justifyContent: 'space-evenly',width: '100%'}}>
 
-                    <TouchableWithoutFeedback onPress={() =>null}>
+                    <TouchableWithoutFeedback onPress={() =>item.ponentes[0]!==undefined?navigation.navigate("PonenteProfile", { item: item.ponentes[0]}):null}>
                     
                     <Block style={{width:width*0.5}}>
 
