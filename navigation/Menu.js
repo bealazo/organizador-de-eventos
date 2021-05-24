@@ -11,7 +11,7 @@ import { Block, Text, theme } from "galio-framework";
 import Images from "../constants/Images";
 import { DrawerItem as DrawerCustomItem } from '../components';
 import Icon from "../components/Icon";
-import argonTheme from "../constants/Theme";
+
 const { width, height } = Dimensions.get('screen');
 
 function CustomDrawerContent({ drawerPosition, navigation, profile, focused, state, ...rest }) {
