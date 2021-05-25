@@ -119,7 +119,7 @@ class Home extends React.Component {
      .then(res => {
        const { statusCode, data } = res;
        if (statusCode === 200) {
-           console.log(data)
+         
            datos=data
           
             //Preparar el componente con las vistas a las que tiene que navegar por cada evento
@@ -156,7 +156,7 @@ class Home extends React.Component {
                     events[index].goto="Tech"
 
                     if( events[index].title=="AVISOS")
-                    events[index].goto="Notices"
+                    events[index].goto="Notifications"
 
                     if( events[index].title=="TWITTER TIMELINE"){
                     events[index].goto="TwitterTimeline"

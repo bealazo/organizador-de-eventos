@@ -25,7 +25,7 @@ class Tech extends React.Component {
 
     const { navigation } = this.props;
 
-    //Lista de tipo de planos
+    //Lista de innovaciones tecnológicas para el ejemplo
     const list = [
         {
             title: 'Hardware',
@@ -42,14 +42,16 @@ class Tech extends React.Component {
                 hora_fin: "15:00",
                 titulo: "Consultoría de movilidad",
                 descripcion:"Consultoría para la planificación estratégica de movilidad orientada al cliente empresarial",
-                sitio:"No disponible"},
+                nombreEnlace:"",
+                 hrefEnlace:""},
                 { avatar: require('../assets/imgs/servapps.jpg'),
                     hora_inicio: "13:00",
                     hora_fin: "15:00",
                   
                     titulo: "Desarrollo de Apps",
                     descripcion:"Desarrollo de Aplicaciones móviles nativas en las plataformas iOS, Android, BlackBerry y Windows Phone",
-                    sitio:"No disponible"}
+                    nombreEnlace:"",
+                    hrefEnlace:""}
             ]
           },  
           {

@@ -37,6 +37,9 @@ import Hardware from "../screens/Hardware";
 import NotificationsPush from "../screens/NotificationsPush";
 import Services from "../screens/Services";
 import ServiceProfile from "../screens/ServiceProfile";
+import Notifications from "../screens/Notifications";
+import NotificationProfile from "../screens/NotificationProfile";
+import Speakers from "../screens/Speakers";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -347,6 +350,34 @@ function HomeStack(props) {
       
         options={({ route }) => ({ title: route.name })}
       />
+       <Stack.Screen
+        name="Notifications"
+        component={Notifications}
+      
+        options={{
+       
+          title:"AVISOS",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
+         <Stack.Screen
+        name="NotificationProfile"
+        component={NotificationProfile}
+      
+        options={({ route }) => ({ title: route.name })}
+      />
+       <Stack.Screen
+        name="Speakers"
+        component={Speakers}
+      
+        options={{
+       
+          title:"PONENTES",                       
+          cardStyle: { backgroundColor: "#F8F9FE" },
+          
+        }}
+       /> 
 
     </Stack.Navigator>
   );

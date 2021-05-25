@@ -6,8 +6,8 @@ import argonTheme from "../constants/Theme";
 
 class DrawerItem extends React.Component {
   goTo = () => {
-    const { title, navigation } = this.props;
-
+    const { title, navigation,timeline,register} = this.props;
+ 
    switch (title) {
       case "MIS FAVORITOS":       
         navigation.navigate("MyFavs")
@@ -18,9 +18,7 @@ class DrawerItem extends React.Component {
         break;
 
       case "REGISTRO ONLINE":
-        Linking.openURL(
-          "https://abamobile.com/web/"
-        ).catch(err => console.error("An error occurred", err))
+        Linking.openURL(register).catch(err => console.error("An error occurred", err))
         break;
 
       case "EXPOSITORES":
@@ -49,7 +47,15 @@ class DrawerItem extends React.Component {
           case "INNOVACIONES TECNOLÓGICAS":
           navigation.navigate("Tech")
           break; 
-           
+          case "NOTIFICACIONES":
+            navigation.navigate("Notifications")
+            break; 
+          case "PONENTES":
+              navigation.navigate("Speakers")
+              break; 
+          case "HASHTAG TWITTER":
+                navigation.navigate("TwitterTimeline",{timeline:timeline})
+                break; 
            
          
       default:

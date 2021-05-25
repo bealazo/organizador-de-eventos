@@ -1,4 +1,4 @@
-import React from "react";
+import React,  { useState, useEffect } from "react";
 import { useSafeArea } from "react-native-safe-area-context";
 import {
   ScrollView,
@@ -14,7 +14,52 @@ import Icon from "../components/Icon";
 
 const { width, height } = Dimensions.get('screen');
 
+import Utils from '../constants/utils_const';
+
 function CustomDrawerContent({ drawerPosition, navigation, profile, focused, state, ...rest }) {
+
+   //para configurar el timeline de twitter
+  const [timeline, setTimeline] = useState({});
+   //para recoger el link de registro online
+  const [register, setRegister] = useState("");
+
+
+//Antes de montar el componente consumo los datos del evento necesarios para navegar directamente a vistas que esperan dichos datos
+  useEffect(() => {
+  
+  let url = new URL("http://aplicacionesparaeventos.com/web/json/v1/evento/datos")
+   const params = {idEvento: 1};
+      Object.keys(params).forEach(key => url.searchParams.append(key, params[key])); 
+      const dataRequest = {
+         method: 'GET',
+         headers: new Headers({
+          idioma: "es",
+          Aceppt: "application/json"
+        })
+      };
+   fetch(url, dataRequest).then(Utils.processResponse)
+     .then(res => {
+       const { statusCode, data } = res;
+       if (statusCode === 200) {
+                  
+            //para configurar el timeline de twitter
+            setTimeline(
+              {id:data.datos.informacion.idHashtag,
+              hashtag:data.datos.informacion.hashtag,
+              url: data.datos.informacion.twitter}
+            )
+            //para recoger el link de registro online  
+             setRegister(data.datos.informacion.webRegistro)
+            } 
+            else {
+              Alert.alert('Error', data.message);
+            }
+          
+        })
+        .catch(error => console.log(error)); 
+
+      },[]);
+
   const insets = useSafeArea();
   const screens = [
     "MIS FAVORITOS",
@@ -73,6 +118,8 @@ function CustomDrawerContent({ drawerPosition, navigation, profile, focused, sta
                   title={item}
                   key={index}
                   navigation={navigation}
+                   //Para registro online
+                   register={item=="REGISTRO ONLINE"?register:null}
                  // focused={state.index === index ? true : false}
                 />
               );
@@ -93,6 +140,9 @@ function CustomDrawerContent({ drawerPosition, navigation, profile, focused, sta
                   title={item}
                   key={index}
                   navigation={navigation}
+                  //Para hashtag twitter
+                  timeline={item=="HASHTAG TWITTER"?timeline:null}
+                 
                   //focused={state.index === index ? true : false}
                 />
               );

@@ -16,8 +16,8 @@ import { Block,Icon} from 'galio-framework';
 const { width, height } = Dimensions.get("screen");
 
 
-//Vista para la información del servicio
-class ServiceProfile extends React.Component {
+//Vista para los detalles de la notificacion
+class NotificationProfile extends React.Component {
 
     constructor(props) {
         super(props);
@@ -57,14 +57,17 @@ class ServiceProfile extends React.Component {
 
           <Card containerStyle={{backgroundColor:"#F2F2F2", borderRadius:10}}>
 
-               
-                  <Avatar rounded size="xlarge" source={item.avatar}    />    
+                  {item.avatar!==""?<Avatar rounded size="xlarge" source={item.avatar}/>:
+                
+                  <Icon name= "bell-o" family="font-awesome" size={100} color={"#4682B4"}></Icon> 
+                  }    
       
-                  <Block style={{marginTop:-120, marginLeft:width*0.35}} >                   
-                  <Card.Title style={{ color: '#4682B4', fontSize:18 }}>{item.titulo}</Card.Title>                
+                  <Block style={{marginTop:item.avatar!==""?-120:-90, marginLeft:item.avatar!==""?width*0.35:0}} >                   
+                  <Card.Title style={{ color: '#4682B4', fontSize:18 }}>{item.titulo}</Card.Title>  
+                  <Card.Title style={{ color: '#4682B4', fontSize:14 }}>{item.fecha}</Card.Title>                
                   </Block>
                 
-                  <Block row style={{justifyContent:"center", marginTop:100}}> 
+                  <Block row style={{justifyContent:"center", marginTop:80}}> 
                         
                   <Text>{item.descripcion}</Text>   
               
@@ -99,4 +102,4 @@ class ServiceProfile extends React.Component {
 }
 
 
-export default ServiceProfile;
+export default NotificationProfile;
