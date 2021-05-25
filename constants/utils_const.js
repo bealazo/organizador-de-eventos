@@ -1,4 +1,3 @@
-import { API} from './const';
 const Utils = {
   
   isDatetime: function isDatetime(date) {
