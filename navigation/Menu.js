@@ -80,6 +80,7 @@ function CustomDrawerContent({ drawerPosition, navigation, profile, focused, sta
     "HASHTAG TWITTER"
   ];
   return (
+
     <Block
       style={styles.container}
       forceInset={{ top: 'always', horizontal: 'never' }}
@@ -150,6 +151,8 @@ function CustomDrawerContent({ drawerPosition, navigation, profile, focused, sta
         </ScrollView>
       </Block>
     </Block>
+
+
   );
 }
 
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
   header: {
     //paddingHorizontal: 28,
     paddingBottom: theme.SIZES.BASE*4,
-    paddingTop: theme.SIZES.BASE * 3.5,
+    paddingTop: theme.SIZES.BASE *6.5,
     justifyContent: 'center'
   },
  
