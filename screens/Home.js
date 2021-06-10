@@ -152,14 +152,17 @@ class Home extends React.Component {
                     if( events[index].title=="COLABORADORES")
                     events[index].goto="Collaborators"
 
-                    if( events[index].title=="INNOVACIONES TECNOLÓGICAS")
-                    events[index].goto="Tech"
+                   if( events[index].title=="INNOVACIONES TECNOLÓGICAS")
+                      events[index].goto="Tech"
+                     
 
-                    if( events[index].title=="AVISOS")
-                    events[index].goto="Notifications"
+                   if( events[index].title=="AVISOS")
+                     events[index].goto="Notifications"
+                    
 
-                    if( events[index].title=="TWITTER TIMELINE"){
-                    events[index].goto="TwitterTimeline"
+                   if( events[index].title=="TWITTER TIMELINE"){
+                     events[index].goto="TwitterTimeline"
+                    
 
                      //para configurar el timeline
                     events[index].timeline={
@@ -169,8 +172,9 @@ class Home extends React.Component {
                        }
                     }
 
-                    if( events[index].title=="PONENTES")
+                  if( events[index].title=="PONENTES")
                     events[index].goto="Speakers"
+                   
               }
 
               this.setState({events:events,datos:data, rutaimagen:data.datos.informacion.rutaBannerFormatServidor})

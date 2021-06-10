@@ -36,7 +36,7 @@ class Program extends React.Component {
     componentDidMount(){
 
       //Cargar de BD la lista de programas antes de montar el componente
-      console.log("program")
+    
       let url = new URL("http://aplicacionesparaeventos.com/web/json/v1/programas/list")
    const params = {idEvento: 1};
       Object.keys(params).forEach(key => url.searchParams.append(key, params[key])); 
@@ -75,7 +75,7 @@ class Program extends React.Component {
                }
             programas[i].conferencias=conferencias_programa
            }
-           console.log(programas)
+           
            //Ordenar por fechas el programa
           let programas1= programas.sort(function(x, y){
             return x.fecha - y.fecha;

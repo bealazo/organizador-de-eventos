@@ -15,16 +15,19 @@ import { Button, Block, theme} from 'galio-framework';
 const { width, height } = Dimensions.get("screen");
 
 
-//Vista para  los Productos
+//Vista para lista de Expositores
 
-class Products extends React.Component {
+class ExhibitorsList extends React.Component {
 
     constructor(props) {
         super(props);
         
         this.state={
 
-          list:[],
+            //Recoger el objeto que pasé por parámetro desde la vista anterior
+            item:this.props.route.params.item,
+          //Obtener la lista de expositores de la categoría
+          list:this.props.route.params.item.expositores,
           
         }
         this.handleFav=this.handleFav.bind(this)
@@ -32,64 +35,22 @@ class Products extends React.Component {
     
     componentDidMount(){
 
-      //Cargar de BD la lista de productos antes de montar el componente
-      //DataSample    
-    let list = [
-     
-      {
-        id:3,
-      title: 'NFC Leads',
-      avatar: require('../assets/imgs/product1.jpeg'),
-      time:"13:00-15:00",
-      fav:false,
+      //Setear el título de la vista con el nombre del expositor antes de montar el componente:
+      this.props.navigation.setOptions({ title: this.state.item.nombre})
 
-      blueprints:"General",
-      phone: "No disponible",
-      email:"No disponible",
-      address: "No disponible",
-      website: "http://nfcleads.com/"
-     
-    },
-   
     
-        {
-          id:1,
-          title: 'AppsForEvents',
-          avatar: require('../assets/imgs/product2.jpeg'),
-          time:"13:00-15:00",
-          fav:false,
-
-          blueprints:"General",
-          phone: "No disponible",
-          email:"No disponible",
-          address: "No disponible",
-          website: "http://aplicacionesparaeventos.com/"
-        },
-  
-     
-    {
-      id:6,
-      title: 'weQuiz',
-      avatar: require('../assets/imgs/product4.jpeg'),
-      time:"13:00-15:00",
-      fav:false,
-
-      blueprints:"No disponible",
-      phone: "No disponible",
-      email:"No disponible",
-      address: "No disponible",
-      website: "http://wequiz.es/"
-    },
-    
-    ]
-
     //Ordenar alfabéticamente
-    list.sort((a, b) => {
-      if(a.title < b.title) return -1;
-      if(a.title > b.title) return 1;
+   let list= this.state.list.sort((a, b) => {
+      if(a.nombre < b.nombre) return -1;
+      if(a.nombre > b.nombre) return 1;
   
       return 0;
   })
+
+  //Favorito Sample
+  for (let index = 0; index < list.length; index++) {
+   list[index].fav=false;    
+  }
 
     //Asignar a variable de estado:
     this.setState({
@@ -101,15 +62,14 @@ class Products extends React.Component {
 
     //Marcar como favorito el item seleccionado
     handleFav(item){
-       console.log(item)
-
+      
        //***Conectar a BD para guardar***
 
        //Para el Ejemplo :
        let list = this.state.list
 
        for (let index = 0; index < list.length; index++) {
-         if(list[index].id==item.id)
+         if(list[index].idExpositor==item.idExpositor)
 
          list[index].fav=!list[index].fav
         
@@ -136,7 +96,9 @@ class Products extends React.Component {
                 <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:120, marginBottom:5}} 
                 onPress={() => navigation.navigate("ExhibitorProfile", { item: item })}>         
                 
-                  <Avatar rounded size="large" source={item.avatar}/>  
+                  <Avatar rounded size="large" source={{
+                      uri: 'http://aplicacionesparaeventos.com'+item.rutaImagenFormatServidor
+                    }}/> 
                  
                   <ListItem.Content>
 
@@ -145,9 +107,9 @@ class Products extends React.Component {
                    </Block>
 
                    <Block >
-                    <ListItem.Subtitle>{item.time}</ListItem.Subtitle>                    
+                    {/* <ListItem.Subtitle>{item.time}</ListItem.Subtitle>*/}
                     
-                    <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.title}</ListItem.Title>                    
+                    <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.nombre}</ListItem.Title>                    
                     </Block>
 
                   </ListItem.Content>                 
@@ -165,4 +127,4 @@ class Products extends React.Component {
 }
 
 
-export default Products;
+export default ExhibitorsList;

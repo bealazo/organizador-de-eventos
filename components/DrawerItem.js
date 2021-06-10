@@ -44,7 +44,7 @@ class DrawerItem extends React.Component {
           case "COLABORADORES":
           navigation.navigate("Collaborators")
           break; 
-          case "INNOVACIONES TECNOLÓGICAS":
+    case "INNOVACIONES TECNOLÓGICAS":
           navigation.navigate("Tech")
           break; 
           case "NOTIFICACIONES":
@@ -56,7 +56,7 @@ class DrawerItem extends React.Component {
           case "HASHTAG TWITTER":
                 navigation.navigate("TwitterTimeline",{timeline:timeline})
                 break; 
-           
+         
          
       default:
         return null;

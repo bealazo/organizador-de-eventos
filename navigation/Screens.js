@@ -13,10 +13,9 @@ import Home from "../screens/Home";
 import MyProfile from "../screens/MyProfile";
 import MyFavs from "../screens/MyFavs";
 import Exhibitors from "../screens/Exhibitors";
-import AllExhibitors from "../screens/AllExhibitors";
+import ExhibitorsList from "../screens/ExhibitorsList";
 import ExhibitorProfile from "../screens/ExhibitorProfile";
-import Products from "../screens/Products";
-import Socios from "../screens/Socios";
+
 import Blueprints from "../screens/Blueprints";
 import General from "../screens/General";
 import Interior from "../screens/Interior";
@@ -110,39 +109,12 @@ function HomeStack(props) {
         }}
       />
         <Stack.Screen
-        name="All"
-        component={AllExhibitors}
+        name="ExhibitorsList"
+        component={ExhibitorsList}
       
-        options={{
-       
-              title:"TODOS",                       
-          cardStyle: { backgroundColor: "#F8F9FE" },
-          
-        }}
-      />
-
-      <Stack.Screen
-        name="Products"
-        component={Products}
-      
-        options={{
-       
-              title:"PRODUCTOS",                       
-          cardStyle: { backgroundColor: "#F8F9FE" },
-          
-        }}
-      />  
-       <Stack.Screen
-        name="Socios"
-        component={Socios}
-      
-        options={{
-       
-              title:"SOCIOS",                       
-          cardStyle: { backgroundColor: "#F8F9FE" },
-          
-        }}
-      />        
+        options={({ route }) => ({ title: route.name })}          
+        
+      />     
      
         <Stack.Screen
         name="ExhibitorProfile"
@@ -426,6 +398,8 @@ function AppStack(props) {
       <Drawer.Screen name="Home" component={HomeStack} />
    
     </Drawer.Navigator>
+
+    
   );
 }
 

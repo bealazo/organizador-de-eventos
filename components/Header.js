@@ -1,12 +1,14 @@
 import React from 'react';
 import { withNavigation } from '@react-navigation/compat';
-import { TouchableOpacity, StyleSheet, Platform, Dimensions } from 'react-native';
+import { TouchableOpacity, StyleSheet, Platform, Dimensions, View } from 'react-native';
 import { Button, Block, NavBar, Text, theme } from 'galio-framework';
 
 import Icon from './Icon';
 import Input from './Input';
 import Tabs from './Tabs';
 import argonTheme from '../constants/Theme';
+
+//import { ListItem} from 'react-native-elements'
 
 const { height, width } = Dimensions.get('window');
 const iPhoneX = () => Platform.OS === 'ios' && (height === 812 || width === 812 || height === 896 || width === 896);
@@ -53,13 +55,49 @@ class Header extends React.Component {
   renderRight = () => {
     const { white, title, navigation } = this.props;
 
-    if (title === 'Title') {
-      return [
-        <BellButton key='chat-title' navigation={navigation} isWhite={white} />,
-        <BasketButton key='basket-title' navigation={navigation} isWhite={white} />
-      ]
-    }
+    //OJO PROBANDO MENÜ DERECHO
 
+      //Lista de tipo de planos
+    /*   const list = [
+        {
+            title: 'General',
+            icon: 'layers',
+            goto:"General"
+          },
+          {
+            title: 'Interior',
+            icon: 'layers',
+            goto:"Interior"
+          },          
+      ]
+    */
+
+   /* if (title === 'APPS FOR EVENTS') {
+      return [
+        <Icon
+        name="home"
+        family="font-awesome"
+        size={20}
+        color="#4682B4"
+        onPress={()=> <View>
+          {
+           list.map((item, i) => (
+              <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:80, marginBottom:5}} 
+              onPress={() => navigation.navigate(item.goto) }>
+                <Icon name={item.icon} size={40} color='#4682B4'/>
+                <ListItem.Content>                 
+                  <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.title}</ListItem.Title>
+                </ListItem.Content>
+                <ListItem.Chevron color='#4682B4'/>
+              </ListItem>
+            ))
+          }
+        </View>}
+      /> 
+       
+      ]
+    } */
+ 
     switch (title) {
       case 'Home':
         return ([
@@ -185,7 +223,7 @@ class Header extends React.Component {
           title={title}
           style={navbarStyles}
           transparent={transparent}
-         // right={this.renderRight()}
+          //right={this.renderRight()}
           rightStyle={{ alignItems: 'center' }}
           left={
             <Icon 
