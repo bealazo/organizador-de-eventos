@@ -15,17 +15,17 @@ import { Block} from 'galio-framework';
 const { width, height } = Dimensions.get("screen");
 
 
-//Vista para los servicios de innovaciones tecnológicas
+//Vista para la lista de innovaciones tecnológicas de una categoría
 
-class Services extends React.Component {
+class TechList extends React.Component {
 
     constructor(props) {
         super(props);
         
         this.state={
             
-           //Recoger la lista que pasé por parámetro desde la vista anterior
-           list:this.props.route.params.item.services,
+           //Recoger el item que pasé por parámetro desde la vista anterior
+           item:this.props.route.params.item,
 
                    
         }
@@ -37,7 +37,7 @@ class Services extends React.Component {
   render() {
 
     const { navigation } = this.props;
-    const list=this.state.list;
+    const list=this.state.item.innovaciones;
    
     return (
                  
@@ -48,16 +48,17 @@ class Services extends React.Component {
              list.map((item, i) => (
             
                 <ListItem key={i} bottomDivider containerStyle={{backgroundColor:"#F2F2F2", height:120, marginBottom:5}} 
-                onPress={() => navigation.navigate("ServiceProfile", { item: item })}>         
+                onPress={() => navigation.navigate("TechProfile", { item: item })}>         
                 
-                  <Avatar rounded size="large" source={item.avatar}/>  
+                  <Avatar rounded size="large"  source={{
+                      uri: 'http://aplicacionesparaeventos.com'+item.rutaImagenFormatServidor
+                    }}/>   
                  
                   <ListItem.Content>
 
                    <Block >
-                    <ListItem.Subtitle>{item.hora_inicio +"-"+ item.hora_fin}</ListItem.Subtitle>                    
-                    
-                    <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.titulo}</ListItem.Title>                    
+                                       
+                    <ListItem.Title style={{ color: '#4682B4', fontSize:22 }}>{item.nombre}</ListItem.Title>                    
                     </Block>
 
                   </ListItem.Content>                 
@@ -75,4 +76,4 @@ class Services extends React.Component {
 }
 
 
-export default Services;
+export default TechList;

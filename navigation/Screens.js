@@ -15,7 +15,6 @@ import MyFavs from "../screens/MyFavs";
 import Exhibitors from "../screens/Exhibitors";
 import ExhibitorsList from "../screens/ExhibitorsList";
 import ExhibitorProfile from "../screens/ExhibitorProfile";
-
 import Blueprints from "../screens/Blueprints";
 import General from "../screens/General";
 import Interior from "../screens/Interior";
@@ -31,10 +30,8 @@ import PonenteProfile from "../screens/PonenteProfile";
 import Map from "../screens/Map";
 import Collaborators from "../screens/Collaborators";
 import Tech from "../screens/Tech";
-import Hardware from "../screens/Hardware";
-import NotificationsPush from "../screens/NotificationsPush";
-import Services from "../screens/Services";
-import ServiceProfile from "../screens/ServiceProfile";
+import TechProfile from "../screens/TechProfile";
+import TechList from "../screens/TechList";
 import Notifications from "../screens/Notifications";
 import NotificationProfile from "../screens/NotificationProfile";
 import Speakers from "../screens/Speakers";
@@ -278,21 +275,16 @@ function HomeStack(props) {
        /> 
 
       <Stack.Screen
-        name="Hardware"
-        component={Hardware}
+        name="TechProfile"
+        component={TechProfile}
       
         options={({ route }) => ({ title: route.name })}
       />
-        <Stack.Screen
-        name="NotificationsPush"
-        component={NotificationsPush}
       
-        options={({ route }) => ({ title: route.name })}
-      />
 
       <Stack.Screen
-        name="Services"
-        component={Services}
+        name="TechList"
+        component={TechList}
       
         options={{
        
@@ -301,12 +293,7 @@ function HomeStack(props) {
           
         }}
        /> 
-         <Stack.Screen
-        name="ServiceProfile"
-        component={ServiceProfile}
       
-        options={({ route }) => ({ title: route.name })}
-      />
        <Stack.Screen
         name="Notifications"
         component={Notifications}

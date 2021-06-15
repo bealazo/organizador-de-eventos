@@ -112,43 +112,7 @@ class InfoServices extends React.Component {
     const list=this.state.list;
     const documentos_no_categoria= this.state.documentos_no_categoria;
    
-    //Lista de categorías
-    /* const list = [
-        {
-            title: 'Documentos',
-            icon: 'list-alt',
-            goto:"Documents"
-          },
-          {
-            title: 'Web abamobile',
-            icon: 'list-alt',
-            goto:"WebAbamobile"
-          },
-    
-        {
-          title: 'Aplicaciones para eventos',
-          icon: 'internet-explorer',
-          goto:"http://aplicacionesparaeventos.com/index.php?lang=es"
-        },
-        {
-            title: 'Encuesta tendencia 2019',
-            icon: 'internet-explorer',
-            goto:"http://aplicacionesparaeventos.com/web/front/encuestas/10/listado"
-          },
-
-          {
-            title: 'NFCLeads',
-            icon: 'internet-explorer',
-            goto:"http://nfcleads.com/index.php?lang=es"
-          },
-          {
-            title: 'weQuiz',
-            icon: 'sticky-note-o',
-            goto:"WeQuiz"
-          },
-      
-      ] */
-   
+  
     return (
                  
           <View>
