@@ -21,9 +21,8 @@ import General from "../screens/General";
 import Interior from "../screens/Interior";
 import SocialMedia from "../screens/SocialMedia";
 import InfoServices from "../screens/InfoServices";
-import Documents from "../screens/Documents";
-import WebAbamobile from "../screens/WebAbamobile";
-import WeQuiz from "../screens/WeQuiz";
+import InfoServicesList from "../screens/InfoServicesList";
+import InfoServicesDoc from "../screens/InfoServicesDoc";
 import Program from "../screens/Program";
 import Conferences from "../screens/Conferences";
 import ConferenceProfile from "../screens/ConferenceProfile";
@@ -178,9 +177,10 @@ function HomeStack(props) {
           
         }}
        /> 
+     
         <Stack.Screen
-        name="Documents"
-        component={Documents}
+        name="InfoServicesList"
+        component={InfoServicesList}
       
         options={{
        
@@ -190,27 +190,12 @@ function HomeStack(props) {
         }}
        /> 
         <Stack.Screen
-        name="WebAbamobile"
-        component={WebAbamobile}
+        name="InfoServicesDoc"
+        component={InfoServicesDoc}
       
-        options={{
-       
-              title:"CATEGORÍAS",                       
-          cardStyle: { backgroundColor: "#F8F9FE" },
-          
-        }}
+        options={({ route }) => ({ title: route.name })}
        /> 
-        <Stack.Screen
-        name="WeQuiz"
-        component={WeQuiz}
-      
-        options={{
-       
-              title:"WEQUIZ",                       
-          cardStyle: { backgroundColor: "#F8F9FE" },
-          
-        }}
-       /> 
+
        <Stack.Screen
         name="Program"
         component={Program}

@@ -3,19 +3,30 @@ import React from "react";
 import { View} from 'react-native';
 import { WebView } from 'react-native-webview';
 
-//Vista para documento WeQuiz
+//Vista para documento
 
-class WeQuiz extends React.Component {
+class InfoServicesDoc extends React.Component {
 
     constructor(props) {
         super(props);
         
         this.state={
+            //Recoger el objeto que pasé por parámetro desde la vista anterior
+            item:this.props.route.params.item,
 
         }
     } 
+
+    componentDidMount(){
+
+      //Setear el título de la vista con el nombre del documento antes de montar el componente:
+        this.props.navigation.setOptions({ title: this.state.item.nombre})
+  
+      }
+
   render() {
 
+    const item=this.state.item
     
     return (
                  
@@ -25,7 +36,7 @@ class WeQuiz extends React.Component {
                         style={{ height: 400, width: 300 }}
                         bounces={false}
                         scrollEnabled={false} 
-                        source={{ uri: 'https://drive.google.com/viewerng/viewer?embedded=true&url=http://www.africau.edu/images/default/sample.pdf' }}
+                        source={{ uri: 'https://drive.google.com/viewerng/viewer?embedded=true&url='+'http://aplicacionesparaeventos.com'+item.rutaDocumentoFormatServidor}}
                         
                         javaScriptEnabled={true}
                         domStorageEnabled={true}
@@ -41,4 +52,4 @@ class WeQuiz extends React.Component {
 }
 
 
-export default WeQuiz;
+export default InfoServicesDoc;
