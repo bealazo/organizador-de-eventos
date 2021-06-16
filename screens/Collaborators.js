@@ -73,31 +73,31 @@ class Collaborators extends React.Component {
             {
             colaboradores.map((item,i)=>(
 
-             <Block row>
+             <Block key={item.idColaborador} row>
                  
                 {i==0 ?
-                <Block style={{width:width*0.5, height:150, backgroundColor:"white", paddingTop:50,  marginRight:5, marginTop:5 }}>
-                <Image key={item.idColaborador} onPress={() =>Linking.openURL(item.web)} source={{
+                <Block key={item.idColaborador} style={{width:width*0.5, height:150, backgroundColor:"white", paddingTop:50,  marginRight:5, marginTop:5 }}>
+                <Image onPress={() =>Linking.openURL(item.web)} source={{
                       uri: 'http://aplicacionesparaeventos.com'+item.rutaImagenColaboradorFormatServidor
                     }} 
                     style={{  width:width*0.5, height:50}} />
                  </Block>
                 :colaboradores.length>i+2?
-                <Block style={{width:width*0.5, height:150, backgroundColor:"white", paddingTop:50, marginRight:5, marginTop:5 }}>
-                <Image key={colaboradores[i+1].idColaborador} onPress={() =>Linking.openURL(colaboradores[i+1].web)} source={{
+                <Block key={colaboradores[i+1].idColaborador} style={{width:width*0.5, height:150, backgroundColor:"white", paddingTop:50, marginRight:5, marginTop:5 }}>
+                <Image  onPress={() =>Linking.openURL(colaboradores[i+1].web)} source={{
                     uri: 'http://aplicacionesparaeventos.com'+colaboradores[i+1].rutaImagenColaboradorFormatServidor
                   }} 
                   style={{   width:width*0.5, height:50 }} />
                   </Block>:null}
               { i==0 ?
-               <Block style={{width:width*0.5, height:150, backgroundColor:"white", paddingTop:50, marginRight:5, marginTop:5}}>
+               <Block  key={colaboradores[i+1].idColaborador} style={{width:width*0.5, height:150, backgroundColor:"white", paddingTop:50, marginRight:5, marginTop:5}}>
                 <Image  onPress={() =>Linking.openURL(colaboradores[i+1].web)} source={{
                         uri: 'http://aplicacionesparaeventos.com'+colaboradores[i+1].rutaImagenColaboradorFormatServidor
                       }} 
                  style={{   width:width*0.5, height:50}} />
                   </Block>
                  :colaboradores.length>i+2?
-                 <Block style={{width:width*0.5, height:150, backgroundColor:"white", paddingTop:50, marginRight:5, marginTop:5}}>
+                 <Block key={colaboradores[i+2].idColaborador} style={{width:width*0.5, height:150, backgroundColor:"white", paddingTop:50, marginRight:5, marginTop:5}}>
                  <Image  onPress={() =>Linking.openURL(colaboradores[i+2].web)} source={{
                     uri: 'http://aplicacionesparaeventos.com'+colaboradores[i+2].rutaImagenColaboradorFormatServidor
                   }} 
