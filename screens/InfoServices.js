@@ -32,6 +32,7 @@ class InfoServices extends React.Component {
     } 
 
     componentDidMount(){
+      console.log("entre a didmount info")
 
       //Cargar de BD la lista de categorías y documentos antes de montar el componente
      
