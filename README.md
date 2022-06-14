@@ -1,4 +1,3 @@
-
 # Organizador de eventos
 
 Réplica de frontend de aplicación móvil para la organización de eventos.
@@ -16,4 +15,5 @@ Réplica de frontend de aplicación móvil para la organización de eventos.
 ## Authors
 
 - [@bealazo](https://github.com/bealazo)
+
 
