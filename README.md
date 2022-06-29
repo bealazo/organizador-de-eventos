@@ -4,7 +4,7 @@ Réplica de frontend de aplicación móvil para la organización de eventos.
 
 ## Tech Stack
 
-**Client:** React Native, Expo
+**Client:** React Native, Expo, consumo de api rest
 
 
 ## Screenshots
